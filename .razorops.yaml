@@ -4,7 +4,7 @@ global:
       - image: hungpham10/algorithm:latest
     
 tasks:  
-  perform_stock_pricing_etl: ## task name
+  perform-etl-for-every-stocks:
     steps:
       - run: dockerize -wait tcp://localhost:5432
       - run: ls -al .
