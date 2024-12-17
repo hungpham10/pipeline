@@ -6,5 +6,4 @@ global:
 tasks:  
   perform-etl-for-every-stocks:
     steps:
-      - run: dockerize -wait tcp://localhost:5432
       - run: ls -al .
