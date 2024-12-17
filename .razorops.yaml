@@ -7,3 +7,9 @@ tasks:
   perform-etl-for-every-stocks:
     steps:
       - run: ls -al .
+
+trigger:
+  schedules:
+  - name: daily schedule
+    cron: '0 0 * * *'
+    branch: main
