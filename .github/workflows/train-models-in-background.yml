@@ -15,7 +15,9 @@ jobs:
     steps:
       - name: Perform entrypoint
         run: |
-          /app/endpoint.sh /app/server /sql 3000 job
+          pwd
+          ls -al .
+          /app/endpoint.sh /server /sql 3000 job
         env:
           DISABLE_AUTO_INIT_DATABASE: true
           EXPIRED_TIMEOUT: ${{ secrets.EXPIRED_TIMEOUT }}
