@@ -12,13 +12,17 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: hungpham10/job-algorithm:latest # Tên image của bạn
-    env:
-      DISABLE_AUTO_INIT_DATABASE: true
-      EXPIRED_TIMEOUT: ${{ secrets.EXPIRED_TIMEOUT }}
-      FIREANT_TOKEN: ${{ secrets.FIREANT_TOKEN }}
-      INFLUXDB_BUCKET: ${{ secrets.INFLUXDB_BUCKET }}
-      INFLUXDB_TOKEN: ${{ secrets.INFLUXDB_TOKEN }}
-      INFLUXDB_URI: ${{ secrets.INFLUXDB_URI }}
-      POSTGRES_DSN: ${{ secrets.POSTGRES_DSN }}
-      REDIS_DSN: ${{ secrets.REDIS_DSN }}
-      SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+    steps:
+      - name: Perform entrypoint
+        run: |
+          /app/endpoint.sh ./server /sql 3000 job
+        env:
+          DISABLE_AUTO_INIT_DATABASE: true
+          EXPIRED_TIMEOUT: ${{ secrets.EXPIRED_TIMEOUT }}
+          FIREANT_TOKEN: ${{ secrets.FIREANT_TOKEN }}
+          INFLUXDB_BUCKET: ${{ secrets.INFLUXDB_BUCKET }}
+          INFLUXDB_TOKEN: ${{ secrets.INFLUXDB_TOKEN }}
+          INFLUXDB_URI: ${{ secrets.INFLUXDB_URI }}
+          POSTGRES_DSN: ${{ secrets.POSTGRES_DSN }}
+          REDIS_DSN: ${{ secrets.REDIS_DSN }}
+          SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
