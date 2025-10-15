@@ -21,4 +21,4 @@ blocks:
           os_image: ubuntu2004
         containers:
           - name: main
-            image: 'ubuntu:22.04'
+            image: 'ghcr.io/hungpham10/algorithm:1.0.27'
