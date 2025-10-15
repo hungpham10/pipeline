@@ -1,25 +1,29 @@
 version: v1.0
 name: Run Endpoint Script Pipeline
-
 agent:
   machine:
-    type: e1-standard-2  # Hoặc loại machine phù hợp (xem docs Semaphore để chọn)
-    os_image: ubuntu2204  # Supported LTS OS image 
-
+    type: e1-standard-2
+    os_image: ubuntu2204
 blocks:
   - name: Perform simulators
     task:
       agent:
-        machine:  
-          type: e1-standard-2  
-          os_image: ubuntu2204 
+        machine:
+          type: e1-standard-2
+          os_image: ubuntu2204
         containers:
           - name: main
-            image: ghcr.io/hungpham10/algorithm:latest
-            entrypoint: ["/bin/sh", "-c"]
+            image: 'ghcr.io/hungpham10/algorithm:latest'
+            entrypoint:
+              - /bin/sh
+              - '-c'
       jobs:
         - name: Start simulator with model trend-following
           secrets:
             - name: simulator-secret
           commands:
             - /app/endpoint.sh /app/aio /sql simulate --model trend-following
+      secrets:
+        - name: simulator-secret
+    run:
+      when: branch = 'master'
