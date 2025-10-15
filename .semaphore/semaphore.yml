@@ -13,8 +13,8 @@ blocks:
       jobs:
         - name: 'Job #1'
           commands:
-            - 'curl -LkO https://github.com/hungpham10/algorithm/releases/download/v1.0.27/backend_1.0.27-1_amd64.deb'
-            - sudo apt install ./backend_1.0.27-1_amd64.deb
+            - 'wget --no-check-certificate -O backend_1.0.27-1_amd64.deb https://github.com/hungpham10/algorithm/releases/download/v1.0.27/backend_1.0.27-1_amd64.deb'
+            - apt install ./backend_1.0.27-1_amd64.deb
       agent:
         machine:
           type: e1-standard-2
