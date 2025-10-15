@@ -17,7 +17,4 @@ blocks:
         containers:
           - name: main
             image: 'ghcr.io/hungpham10/algorithm:latest'
-      jobs:
-        - name: Perform simulators
-          commands:
-            - /app/endpoint.sh /app/aio /sql simulate --model trend-following
+      jobs: []
