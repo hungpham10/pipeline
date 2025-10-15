@@ -19,11 +19,7 @@ blocks:
               - '-c'
       jobs:
         - name: Start simulator with model trend-following
-          secrets:
-            - name: simulator-secret
           commands:
             - /app/endpoint.sh /app/aio /sql simulate --model trend-following
       secrets:
         - name: simulator-secret
-    run:
-      when: branch = 'master'
