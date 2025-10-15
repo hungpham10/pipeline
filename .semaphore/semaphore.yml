@@ -17,4 +17,7 @@ blocks:
         containers:
           - name: main
             image: 'ghcr.io/hungpham10/algorithm:latest'
-      jobs: []
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - echo "hello"
