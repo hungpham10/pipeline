@@ -21,6 +21,3 @@ blocks:
         - name: Perform simulators
           commands:
             - /app/endpoint.sh /app/aio /sql simulate --model trend-following
-      env_vars:
-        - name: DISABLE_AUTO_INIT_DATABASE
-          value: 'true'
