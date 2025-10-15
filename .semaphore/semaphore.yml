@@ -3,17 +3,13 @@ name: Run Endpoint Script Pipeline
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu2004
+    os_image: ubuntu2204
 blocks:
   - name: Build models
     dependencies: []
     task:
       secrets:
         - name: simulator-secret
-      agent:
-        machine:
-          type: e1-standard-2
-          os_image: ubuntu2004
       jobs:
         - name: 'Job #1'
           commands:
