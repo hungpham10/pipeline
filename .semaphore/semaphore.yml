@@ -4,12 +4,15 @@ name: Run Endpoint Script Pipeline
 agent:
   machine:
     type: e1-standard-2  # Hoặc loại machine phù hợp (xem docs Semaphore để chọn)
-    os_image: ubuntu2004  # OS image cho machine
+    os_image: ubuntu2204  # Supported LTS OS image 
 
 blocks:
   - name: Perform simulators
     task:
       agent:
+        machine:  
+          type: e1-standard-2  
+          os_image: ubuntu2204 
         containers:
           - name: main
             image: ghcr.io/hungpham10/algorithm:latest
