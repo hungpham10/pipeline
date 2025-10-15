@@ -17,6 +17,11 @@ blocks:
         containers:
           - name: main
             image: 'ghcr.io/hungpham10/algorithm:latest'
+            env_vars:
+              - name: DISABLE_AUTO_INIT_DATABASE
+                value: 'true'
+              - name: COMMAND
+                value: simulate
       jobs:
         - name: 'Job #1'
           commands:
