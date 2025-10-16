@@ -5,6 +5,7 @@ jobs:
       - image: ghcr.io/hungpham10/algorithm:latest
     environment:
       ENVIRONMENT: "prod"
+      DISABLE_AUTO_INIT_DATABASE: "true"
     steps:
       - run:
           name: Run command to build model
