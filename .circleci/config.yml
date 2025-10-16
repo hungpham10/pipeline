@@ -1,0 +1,17 @@
+version: 2.1
+jobs:
+  build-trend-following-models:
+    docker:
+      - image: ghcr.io/hungpham10/algorithm:latest
+    environment:
+      ENVIRONMENT: "prod"
+    steps:
+      - run:
+          name: Run command to build model
+          command: |
+            /app/endpoint.sh /app/aio /sql
+
+workflows:
+  build-models:
+    jobs:
+      - build-trend-following-models
