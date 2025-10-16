@@ -10,7 +10,7 @@ jobs:
       - run:
           name: Run command to build model
           command: |
-            /app/endpoint.sh /app/aio /sql simulate
+            /app/endpoint.sh /app/aio /sql simulate --lookback-to-year 3
 
 workflows:
   build-models:
