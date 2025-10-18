@@ -4,11 +4,23 @@ agent:
   machine:
     type: f1-standard-2
     os_image: ubuntu2004
+  containers:
+    - name: main
+      image: 'registry.semaphoreci.com/node:10'
+    - name: database
+      image: 'registry.semaphoreci.com/postgres:11'
 blocks:
-  - name: Train model
+  - name: Hello World
     task:
       jobs:
-        - name: Train model
+        - name: Test job
           commands:
             - 'wget --no-check-certificate -O backend_1.0.27-1_amd64.deb https://github.com/hungpham10/algorithm/releases/download/v1.0.27/backend_1.0.27-1_amd64.deb'
-            - sudo apt install ./backend_1.0.27-1_amd64.deb
+            - apt install ./backend_1.0.27-1_amd64.deb
+      agent:
+        machine:
+          type: e1-standard-2
+          os_image: ubuntu2004
+        containers:
+          - name: main
+            image: 'ubuntu:22.04'
